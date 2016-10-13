@@ -14,12 +14,8 @@ class CloudWatchEventsHandler(Handler):
         Will set detail_type on handler object then invoke Handler __init__
         with any passed in arguments
         """
-        self.detail_type=detail_type
-        super(CloudWatchEventsHandler, self).__init__(
-            *args,
-            **kwargs
-        )
-
+        self.detail_type = detail_type
+        super(CloudWatchEventsHandler, self).__init__(*args, **kwargs)
 
     def emit(self, record):
         """Overridden emit method.
