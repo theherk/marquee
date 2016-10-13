@@ -7,7 +7,7 @@ from marquee.handler import CloudWatchEventsHandler
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
-handler = CloudWatchEventsHandler()
+handler = CloudWatchEventsHandler(detail_type='new_type')
 log.addHandler(handler)
 
 fmt = MarqueeFormatter('theherk.testapp')
