@@ -23,17 +23,16 @@ class MarqueeFormatter(Formatter):
             'created': self.formatTime(record),
             'level': record.levelname,
             'level_number': record.levelno,
-            'message': record.msg
+            'message': super(MarqueeFormatter, self).format(record)
         })
 
-
-class MarqueeEventFormatter(MarqueeFormatter):
+class MarqueeEventFormatter(Formatter):
     def __init__(self, event_type=None, source=None, *args, **kwargs):
         """marquee event formatter.
         """
         self.source = source if source is not None else __name__
         self.event_type = event_type if event_type else self.source
-        super(MarqueeFormatter, self).__init__(*args, **kwargs)
+        super(MarqueeEventFormatter, self).__init__(*args, **kwargs)
 
     def format(self, record):
         """Overridden format method.
@@ -43,6 +42,6 @@ class MarqueeEventFormatter(MarqueeFormatter):
             'source': self.source,
             'created': self.formatTime(record),
             'event-type': self.event_type,
-            'event': record.msg
+            'event': super(MarqueeEventFormatter, self).format(record)
         })
 

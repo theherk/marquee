@@ -14,7 +14,7 @@ log.addHandler(handler)
 fmt_log = MarqueeFormatter('theherk.testapp')
 handler.setFormatter(fmt_log)
 
-log.info('Hello. This is dog.')
+log.info('%s says Hello. This is dog.', 'val')
 
 fmt_event = MarqueeEventFormatter(event_type='theherk.testevent', source='theherk.testapp')
 handler.setFormatter(fmt_event)
@@ -22,8 +22,8 @@ handler.setFormatter(fmt_event)
 log.error(
     json.dumps(
         {
-            'user':'jeffrey',
+            '%s':'jeffrey',
             'other':'stuff'
         }
-    )
+    ), 'user'
 )
