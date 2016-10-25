@@ -7,7 +7,6 @@ from marquee.formatter import MarqueeFormatter
 
 
 class CloudWatchEventsHandler(Handler):
-
     def __init__(self, session=None, detail_type=None, *args, **kwargs):
         """Overridden __init__ method.
 

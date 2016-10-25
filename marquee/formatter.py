@@ -25,6 +25,7 @@ class MarqueeFormatter(Formatter):
             'message': super(MarqueeFormatter, self).format(record)
         })
 
+
 class MarqueeEventFormatter(Formatter):
     def __init__(self, event_type=None, source=None, *args, **kwargs):
         """marquee event formatter.
