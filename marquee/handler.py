@@ -30,7 +30,6 @@ class CloudWatchEventsHandler(Handler):
         return client.put_events(
             Entries=[
                 {
-                    'Time': self.formatter.formatTime(record),
                     'Source': source,
                     'DetailType': detail_type,
                     'Detail': self.format(record)
