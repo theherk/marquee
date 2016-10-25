@@ -19,7 +19,6 @@ class MarqueeFormatter(Formatter):
         This will create a json object containing data for the CloudWatch Event.
         """
         return json.dumps({
-            'source': self.source,
             'created': self.formatTime(record),
             'level': record.levelname,
             'level_number': record.levelno,
@@ -39,9 +38,7 @@ class MarqueeEventFormatter(Formatter):
         This will create a json object containing data for the CloudWatch Event.
         """
         return json.dumps({
-            'source': self.source,
             'created': self.formatTime(record),
             'event-type': self.event_type,
             'event': super(MarqueeEventFormatter, self).format(record)
         })
-

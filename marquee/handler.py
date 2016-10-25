@@ -25,12 +25,11 @@ class CloudWatchEventsHandler(Handler):
         and target account all set according to normal boto resolution.
         """
         client = self.session.client('events') if self.session is not None else boto3.client('events')
-        source = self.formatter.source if isinstance(self.formatter, MarqueeFormatter) else __name__
+        source = self.formatter.source if hasattr(self.formatter, 'source') else __name__
         detail_type = self.detail_type if self.detail_type is not None else 'marquee'
         return client.put_events(
             Entries=[
                 {
-                    'Time': self.formatter.formatTime(record),
                     'Source': source,
                     'DetailType': detail_type,
                     'Detail': self.format(record)
