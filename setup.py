@@ -18,6 +18,7 @@ setup(
     long_description=readme,
     author='Herkermer Sherwood',
     author_email='theherk@gmail.com',
+    url='https://github.com/theherk/marquee',
     packages=find_packages(),
     platforms=['all'],
     install_requires=install_requires,
